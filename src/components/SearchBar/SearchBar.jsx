@@ -33,7 +33,7 @@ const SearchBar = ({ setQuery }) => {
           </button>
         </Form>
       </Formik>
-      <Toaster position="bottom-right" className={s.error} />
+      <Toaster position="bottom-right" />
     </header>
   );
 };
