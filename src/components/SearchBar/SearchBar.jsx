@@ -17,7 +17,7 @@ const SearchBar = ({ setQuery }) => {
   };
 
   return (
-    <header>
+    <header className={s.header}>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form className={s.form}>
           <Field
@@ -26,11 +26,14 @@ const SearchBar = ({ setQuery }) => {
             autoComplete="off"
             autoFocus
             placeholder="Search images and photos"
+            className={s.input}
           />
-          <button type="submit">Search</button>
+          <button className={s.btn} type="submit">
+            Search
+          </button>
         </Form>
       </Formik>
-      <Toaster position="top-right" />
+      <Toaster position="bottom-right" className={s.error} />
     </header>
   );
 };

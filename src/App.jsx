@@ -71,7 +71,6 @@ function App() {
 
   return (
     <div>
-      <h2>APP</h2>
       <SearchBar setQuery={handleSearch} />
       {loading && <Loader />}
       {error && <ErrorMessage message={error} />}
@@ -80,7 +79,7 @@ function App() {
         <LoadMoreBtn onClick={loadMoreImg} />
       )}
       {modal && <ImageModal image={selectedImg} onClose={closeModal} />}
-      <Toaster position="top-right" />
+      <Toaster position="bottom-right" />
     </div>
   );
 }
