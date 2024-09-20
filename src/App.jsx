@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import toast, { Toaster } from "react-hot-toast";
 import { fetchImages } from "./services/api";
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
