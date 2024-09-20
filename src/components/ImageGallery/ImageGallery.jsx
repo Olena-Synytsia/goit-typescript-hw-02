@@ -3,13 +3,15 @@ import ImageCard from "../ImageCard/ImageCard";
 
 const ImageGallery = ({ images, onClick }) => {
   return (
-    <ul>
-      {images.map((image) => (
-        <li key={image.id}>
-          <ImageCard image={image} onClick={onClick} />
-        </li>
-      ))}
-    </ul>
+    images.length > 0 && (
+      <ul>
+        {images.map((image) => (
+          <li key={image.id}>
+            <ImageCard image={image} onClick={onClick} />
+          </li>
+        ))}
+      </ul>
+    )
   );
 };
 
