@@ -9,9 +9,16 @@ const ImageModal = ({ image, onClose }) => {
       onRequestClose={onClose}
       className={s.modal}
       overlayClassName={s.overlay}
+      backdropClassName={s.backdrop}
     >
-      <div className={s.container}>
-        {image && <img src={image.urls.regular} alt={image.alt_description} />}
+      <div>
+        {image && (
+          <img
+            className={s.img}
+            src={image.urls.regular}
+            alt={image.alt_description}
+          />
+        )}
       </div>
     </Modal>
   );
