@@ -3,7 +3,10 @@
 }
 
 .img {
-  width: 400px;
-  height: 300px;
+  width: 376px;
+  height: 280px;
   object-fit: cover;
+  border: 2px solid black;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px 2px rgb(125, 125, 125);
 }
