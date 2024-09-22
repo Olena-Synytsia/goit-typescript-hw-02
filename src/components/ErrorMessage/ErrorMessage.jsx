@@ -1,7 +1,7 @@
-// import s from "./ErrorMessage.module.css";
+import s from "./ErrorMessage.module.css";
 
 const ErrorMessage = ({ message }) => {
-  return <p>{message}</p>;
+  return <p className={s.text}>{message}</p>;
 };
 
 export default ErrorMessage;

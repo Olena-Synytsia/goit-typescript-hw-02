@@ -66,6 +66,7 @@ function App() {
     setQuery(newQuery);
     setPage(1);
     setImages([]);
+    closeModal();
   };
 
   const loadMoreImg = () => {

@@ -13,7 +13,6 @@ export const fetchImages = async (query, page = 1) => {
         client_id: API_KEY,
       },
     });
-    console.log("API Response:", response.data);
     return response.data;
   } catch {
     throw new Error("Failed to fetch images");
