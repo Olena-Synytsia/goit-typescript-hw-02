@@ -16,11 +16,17 @@ const ImageModal = ({ image, onClose }) => {
     >
       <div>
         {image && (
-          <img
-            className={s.img}
-            src={image.urls.regular}
-            alt={image.alt_description}
-          />
+          <>
+            <img
+              className={s.img}
+              src={image.urls.regular}
+              alt={image.alt_description}
+            />
+            <div>
+              <h2 className={s.title}>{image.alt_description}</h2>
+              <p className={s.text}>{`Likes: ${image.likes}`}</p>
+            </div>
+          </>
         )}
       </div>
     </Modal>
