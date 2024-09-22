@@ -45,8 +45,20 @@ function App() {
       }
     };
 
+    useEffect(() => {
+      if (selectedImg) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }, [selectedImg]);
+
     fetchImagesData();
-  }, [query, page, error]);
+  }, [query, page]);
 
   const isEndLoadMore = images.length < totalImages;
 
@@ -71,7 +83,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div id="main-content" tabIndex={selectedImg ? -1 : 0}>
       <SearchBar setQuery={handleSearch} />
       {loading && <Loader />}
       {error && <ErrorMessage message={error} />}

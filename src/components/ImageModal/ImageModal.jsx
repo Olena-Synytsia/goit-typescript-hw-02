@@ -11,7 +11,8 @@ const ImageModal = ({ image, onClose }) => {
       onRequestClose={onClose}
       className={s.modal}
       overlayClassName={s.overlay}
-      backdropClassName={s.backdrop}
+      ariaHideApp={true}
+      shouldCloseOnOverlayClick={true}
     >
       <div>
         {image && (
