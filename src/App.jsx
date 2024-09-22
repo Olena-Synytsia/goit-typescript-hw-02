@@ -21,6 +21,18 @@ function App() {
   const [selectedImg, setSelectedImg] = useState(null);
 
   useEffect(() => {
+    if (selectedImg) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedImg]);
+
+  useEffect(() => {
     if (!query) return;
 
     const fetchImagesData = async () => {
@@ -45,18 +57,6 @@ function App() {
       }
     };
 
-    useEffect(() => {
-      if (selectedImg) {
-        document.body.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "";
-      }
-
-      return () => {
-        document.body.style.overflow = "";
-      };
-    }, [selectedImg]);
-
     fetchImagesData();
   }, [query, page]);
 
@@ -73,8 +73,10 @@ function App() {
   };
 
   const openModal = (image) => {
+    if (!modal) {
+      setModal(true);
+    }
     setSelectedImg(image);
-    setModal(true);
   };
 
   const closeModal = () => {
@@ -83,7 +85,7 @@ function App() {
   };
 
   return (
-    <div id="main-content" tabIndex={selectedImg ? -1 : 0}>
+    <div className={modal ? "inert-content" : ""}>
       <SearchBar setQuery={handleSearch} />
       {loading && <Loader />}
       {error && <ErrorMessage message={error} />}
