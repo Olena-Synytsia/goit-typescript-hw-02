@@ -21,18 +21,6 @@ function App() {
   const [selectedImg, setSelectedImg] = useState(null);
 
   useEffect(() => {
-    if (selectedImg) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [selectedImg]);
-
-  useEffect(() => {
     if (!query) return;
 
     const fetchImagesData = async () => {

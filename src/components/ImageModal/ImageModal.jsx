@@ -1,10 +1,38 @@
+import { useEffect } from "react";
 import Modal from "react-modal";
+import toast from "react-hot-toast";
 
 import s from "./ImageModal.module.css";
 
 Modal.setAppElement("#root");
 
 const ImageModal = ({ image, onClose }) => {
+  useEffect(() => {
+    try {
+      if (image) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    } catch {
+      toast.error("Failed to fetch images. Please try again.");
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [image]);
+
+  useEffect(() => {
+    try {
+      if (!image) {
+        toast.error("No images available.");
+      }
+    } catch {
+      toast.error("Failed to fetch images. Please try again.");
+    }
+  }, [image]);
+
   return (
     <Modal
       isOpen={!!image}
