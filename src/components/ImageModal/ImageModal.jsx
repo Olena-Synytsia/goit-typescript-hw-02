@@ -23,16 +23,6 @@ const ImageModal = ({ image, onClose }) => {
     };
   }, [image]);
 
-  useEffect(() => {
-    try {
-      if (!image) {
-        toast.error("No images available.");
-      }
-    } catch {
-      toast.error("Failed to fetch images. Please try again.");
-    }
-  }, [image]);
-
   return (
     <Modal
       isOpen={!!image}
