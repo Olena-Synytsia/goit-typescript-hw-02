@@ -8,17 +8,19 @@ import ImageGallery from "./components/ImageGallery/ImageGallery.jsx";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn.jsx";
 import ImageModal from "./components/ImageModal/ImageModal.jsx";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage.jsx";
+import { Image } from "./services/api.types";
+import { FetchImages } from "./services/api.types";
 import "./App.css";
 
 function App() {
-  const [query, setQuery] = useState("");
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(1);
-  const [error, setError] = useState(null);
-  const [totalImages, setTotalImages] = useState(0);
-  const [modal, setModal] = useState(false);
-  const [selectedImg, setSelectedImg] = useState(null);
+  const [query, setQuery] = useState<string>("");
+  const [images, setImages] = useState<Image[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+  const [error, setError] = useState<string | null>(null);
+  const [totalImages, setTotalImages] = useState<number>(0);
+  const [modal, setModal] = useState<boolean>(false);
+  const [selectedImg, setSelectedImg] = useState<Image | null>(null);
 
   useEffect(() => {
     if (!query) return;
@@ -27,7 +29,7 @@ function App() {
       setLoading(true);
       setError(null);
       try {
-        const data = await fetchImages(query, page);
+        const data: FetchImages = await fetchImages(query, page);
         setTotalImages(data.total);
         if (data.results.length === 0) {
           toast.error("The image does not exist. Make a new request.");
@@ -50,7 +52,7 @@ function App() {
 
   const isEndLoadMore = images.length < totalImages;
 
-  const handleSearch = (newQuery) => {
+  const handleSearch = (newQuery: string) => {
     setQuery(newQuery);
     setPage(1);
     setImages([]);
@@ -61,7 +63,7 @@ function App() {
     setPage((prev) => prev + 1);
   };
 
-  const openModal = (image) => {
+  const openModal = (image: Image) => {
     if (!modal) {
       setModal(true);
     }

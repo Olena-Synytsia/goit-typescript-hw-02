@@ -1,6 +1,10 @@
 import s from "./ErrorMessage.module.css";
 
-const ErrorMessage = ({ message }) => {
+interface ErrorMessageProps {
+  message: string;
+}
+
+const ErrorMessage: React.FC<ErrorMessageProps> = ({ message }) => {
   return <p className={s.text}>{message}</p>;
 };
 
