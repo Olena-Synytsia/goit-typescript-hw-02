@@ -1,7 +1,13 @@
 import ImageCard from "../ImageCard/ImageCard";
+import { Image } from "../../services/api.types";
 import s from "./ImageGallery.module.css";
 
-const ImageGallery = ({ images, onClick }) => {
+interface ImageGalleryProps {
+  images: Image[];
+  onClick: (image: Image) => void;
+}
+
+const ImageGallery: React.FC<ImageGalleryProps> = ({ images, onClick }) => {
   return (
     images.length > 0 && (
       <ul className={s.gallery}>
