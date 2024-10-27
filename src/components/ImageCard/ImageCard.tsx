@@ -1,6 +1,13 @@
+import React from "react";
+import { Image } from "../../services/api.types";
 import s from "./ImageCard.module.css";
 
-const ImageCard = ({ image, onClick }) => {
+interface ImageCardProps {
+  image: Image;
+  onClick: (image: Image) => void;
+}
+
+const ImageCard: React.FC<ImageCardProps> = ({ image, onClick }) => {
   return (
     <div className={s.container} onClick={() => onClick(image)}>
       <img

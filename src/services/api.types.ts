@@ -4,6 +4,7 @@ export interface Image {
     small: string;
     regular: string;
   };
+  alt_description: string;
 }
 
 export interface FetchImages {
