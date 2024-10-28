@@ -2,12 +2,24 @@ import toast, { Toaster } from "react-hot-toast";
 import { Field, Form, Formik } from "formik";
 import s from "./SearchBar.module.css";
 
-const SearchBar = ({ setQuery }) => {
+interface SearchBarProps {
+  setQuery: (query: string) => void;
+}
+
+interface FormValues {
+  query: string;
+}
+
+interface ResetForm {
+  resetForm: () => void;
+}
+
+const SearchBar = ({ setQuery }: SearchBarProps) => {
   const initialValues = {
     query: "",
   };
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (values: FormValues, { resetForm }: ResetForm) => {
     if (!values.query.trim()) {
       toast.error("Oops... Enter your search query!");
       return;

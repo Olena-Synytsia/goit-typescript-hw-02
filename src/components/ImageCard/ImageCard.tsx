@@ -1,11 +1,5 @@
-import React from "react";
-import { Image } from "../../services/api.types";
+import { ImageCardProps } from "./ImageCard.types";
 import s from "./ImageCard.module.css";
-
-interface ImageCardProps {
-  image: Image;
-  onClick: (image: Image) => void;
-}
 
 const ImageCard = ({ image, onClick }: ImageCardProps) => {
   return (

@@ -1,15 +1,10 @@
 import { useEffect } from "react";
 import Modal from "react-modal";
 import toast from "react-hot-toast";
-import { Image } from "../../services/api.types";
+import { ImageModalProps } from "./ImageModal.type";
 import s from "./ImageModal.module.css";
 
 Modal.setAppElement("#root");
-
-interface ImageModalProps {
-  image: Image | null;
-  onClose: () => void;
-}
 
 const ImageModal = ({ image, onClose }: ImageModalProps) => {
   useEffect(() => {
