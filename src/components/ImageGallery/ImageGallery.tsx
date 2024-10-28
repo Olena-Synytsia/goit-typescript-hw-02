@@ -7,7 +7,7 @@ interface ImageGalleryProps {
   onClick: (image: Image) => void;
 }
 
-const ImageGallery: React.FC<ImageGalleryProps> = ({ images, onClick }) => {
+const ImageGallery = ({ images, onClick }: ImageGalleryProps) => {
   return (
     images.length > 0 && (
       <ul className={s.gallery}>

@@ -7,7 +7,7 @@ interface ImageCardProps {
   onClick: (image: Image) => void;
 }
 
-const ImageCard: React.FC<ImageCardProps> = ({ image, onClick }) => {
+const ImageCard = ({ image, onClick }: ImageCardProps) => {
   return (
     <div className={s.container} onClick={() => onClick(image)}>
       <img
