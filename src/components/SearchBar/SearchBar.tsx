@@ -1,18 +1,9 @@
 import toast, { Toaster } from "react-hot-toast";
 import { Field, Form, Formik } from "formik";
+import { SearchBarProps } from "./SearchBar.types";
+import { FormValues } from "./SearchBar.types";
+import { ResetForm } from "./SearchBar.types";
 import s from "./SearchBar.module.css";
-
-interface SearchBarProps {
-  setQuery: (query: string) => void;
-}
-
-interface FormValues {
-  query: string;
-}
-
-interface ResetForm {
-  resetForm: () => void;
-}
 
 const SearchBar = ({ setQuery }: SearchBarProps) => {
   const initialValues = {
