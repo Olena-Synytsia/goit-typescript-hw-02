@@ -5,7 +5,3 @@ export interface SearchBarProps {
 export interface FormValues {
   query: string;
 }
-
-export interface ResetForm {
-  resetForm: () => void;
-}

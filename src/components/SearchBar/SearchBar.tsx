@@ -1,8 +1,7 @@
 import toast, { Toaster } from "react-hot-toast";
-import { Field, Form, Formik } from "formik";
+import { Field, Form, Formik, FormikHelpers } from "formik";
 import { SearchBarProps } from "./SearchBar.types";
 import { FormValues } from "./SearchBar.types";
-import { ResetForm } from "./SearchBar.types";
 import s from "./SearchBar.module.css";
 
 const SearchBar = ({ setQuery }: SearchBarProps) => {
@@ -10,7 +9,10 @@ const SearchBar = ({ setQuery }: SearchBarProps) => {
     query: "",
   };
 
-  const handleSubmit = (values: FormValues, { resetForm }: ResetForm) => {
+  const handleSubmit = (
+    values: FormValues,
+    { resetForm }: FormikHelpers<FormValues>
+  ) => {
     if (!values.query.trim()) {
       toast.error("Oops... Enter your search query!");
       return;
